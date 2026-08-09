@@ -1,8 +1,11 @@
 const WebSocket = require("ws");
 
-const port = process.env.PORT || 8080;
+const port = Number(process.env.PORT) || 10000;
 
-const server = new WebSocket.Server({ port: port });
+const server = new WebSocket.Server({
+    port: port,
+    host: "0.0.0.0"
+});
 
 console.log("MECHA CHAMELEON SERVER");
 console.log("Servidor iniciado na porta " + port);
@@ -10,7 +13,9 @@ console.log("Aguardando jogadores...");
 
 server.on("connection", function(ws) {
 
-    console.log("PS2 conectado!");
+    console.log("=================================");
+    console.log("PS2 CONECTADO!");
+    console.log("=================================");
 
     ws.send("BEM_VINDO");
 
