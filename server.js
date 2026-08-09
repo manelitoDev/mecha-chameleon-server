@@ -1,10 +1,12 @@
 const WebSocket = require("ws");
 
 const port = process.env.PORT || 8080;
+
 const server = new WebSocket.Server({ port: port });
 
 console.log("MECHA CHAMELEON SERVER");
-console.log("Servidor iniciado na porta 8080");
+console.log("Servidor iniciado na porta " + port);
+console.log("Aguardando jogadores...");
 
 server.on("connection", function(ws) {
 
